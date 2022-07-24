@@ -55,11 +55,6 @@ echo "Downloading $GHIDRA with version $GHIDRAVER"
 echo
 wget -c --quiet "https://github.com/$GHIDRALINK" || exit 1
 
-echo "Checking Hashes"
-export DOWNLOADHASH=`wget -O - --quiet  https://github.com/NationalSecurityAgency/ghidra/releases/latest | grep 'SHA-256:' | grep 'code' | sed 's:.*<code>\(.*\)</code>.*:\1:p' | tail -1`
-test -z "$DOWNLOADHASH ghidra_10.0.1_PUBLIC_20210708.zip | sha256sum --check" && { echo Error: hashes do not match ; exit 1; }
-echo $DOWNLOADHASH ghidra_10.0.1_PUBLIC_20210708.zip | sha256sum --check
-
 echo
 echo Unpacking Ghidra ...
 unzip "$GHIDRA" > /dev/null || exit 1
