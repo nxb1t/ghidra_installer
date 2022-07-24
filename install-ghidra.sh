@@ -53,7 +53,7 @@ test -e $INSTALL_DIR/$GHIDRAVER && { echo Error: $GHIDRAVER is already installed
 
 echo "Downloading $GHIDRA with version $GHIDRAVER"
 echo
-wget -c --quiet "https://github.com/$GHIDRALINK" || exit 1
+wget -c "https://github.com/$GHIDRALINK" || exit 1
 
 echo
 echo Unpacking Ghidra ...
